@@ -1,0 +1,5 @@
+git clone https://github.com/thatzopoulos/virMine.git
+
+sudo docker build -t virmine .
+
+sudo docker run -i -t virmine 
