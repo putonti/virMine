@@ -4,12 +4,13 @@ FROM ubuntu
 #Gene Prediction:glimmer
 #blast and BBMAP
 
-#Needs viral dn nonviral dtabases
-#location /home/cputonti/virmineAndrea/databases/
-#all_viral_faa.fasta no_phage_bact_complete.fasta
+#Location: /home/cputonti/virmineAndrea/databases
+#Viral DB: all_viral_faa.fasta
+#NonViral DB: no_phage_bact_complete.fasta
+
 RUN apt-get update && apt-get install -y python3 python3-dev gcc g++ unzip make git bzip2 zlib1g-dev ncurses-dev wget python3-pip ipython3 build-essential python3-pkg-resources python3-setuptools ncbi-blast+
-#ADD all_viral_faa.fasta all_viral_faa.fasta
-#ADD no_phage_bact_complete.fasta no_phage_bact_complete.fasta
+ADD all_viral_faa.fasta all_viral_faa.fasta
+ADD no_phage_bact_complete.fasta no_phage_bact_complete.fasta
 ADD glimmer302b.tar.gz glimmer
 ADD BBMap_37.36.tar.gz bbmap
 ADD virMine.py virMine.py 
