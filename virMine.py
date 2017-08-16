@@ -95,23 +95,23 @@ def check_installs():
         return False
 
     #check MEGAHIT
-    if path_check('megahit') == None:
-        print('Program MEGAHIT not in path')
-        return False
+#    if path_check('megahit') == None:
+#        print('Program MEGAHIT not in path')
+#        return False
 
     #check GLIMMER
-    if path_check('glimmer3') == None or path_check('long-orfs') == None or path_check('extract') == None or path_check('build-icm') == None:
-        print ('Program GLIMMER not in path')
-        return False
+#    if path_check('glimmer3') == None or path_check('long-orfs') == None or path_check('extract') == None or path_check('build-icm') == None:
+#        print ('Program GLIMMER not in path')
+#        return False
 
     #check BLASTX
     if path_check('blastx') == None:
         print('BLAST+ tools are not added to the path')
 
     #check BBMAP
-    if path_check('bbmap.sh') == None:
-        print('Program bbmap not in path')
-        return False
+#    if path_check('bbmap.sh') == None:
+#        print('Program bbmap not in path')
+#        return False
 
    
 #CHECK IF A FILE EXISTS
@@ -371,7 +371,7 @@ def run_sickle(output_path,r_type='pe',*read_files):
             output_file_label1='trimmed_'+read_files[0][read_files[0].rfind("/")+1:]
             output_file_label2='trimmed_'+read_files[1][read_files[0].rfind("/")+1:]
             sickle_command+='pe -f '+read_files[0]+' -r '+read_files[1]+' -t sanger -o '+output_path+'/temp/'+output_file_label1\
-                         +' -p '+output_path+'/temp/'+output_file_label2+' -s '+output_path+'/temp/singletons.fastq -l 50'
+                         +' -p '+output_path+'/temp/'+output_file_label2+' -s '+output_path+'/temp/singletons.fastq -l 30'
             check_output=output_path+'/temp/'+output_file_label1
             print(sickle_command)
     else:
@@ -381,7 +381,7 @@ def run_sickle(output_path,r_type='pe',*read_files):
         else:
             read1=read_files[0]
             output_file_label='trimmed_'+read1[read1.rfind("/")+1:]
-            sickle_command+='se -f '+read1+' -t sanger -o '+output_path+'/temp/'+output_file_label+' -l 50'
+            sickle_command+='se -f '+read1+' -t sanger -o '+output_path+'/temp/'+output_file_label+' -l 100'
             check_output=output_path+'/temp/'+output_file_label
             print(sickle_command)
     os.system(sickle_command)
@@ -876,16 +876,6 @@ def filter_contigs(contig_file,filter_params,type_reads,num_threads,*reads):
 def check_output_path(output_path):
     #check that output_path exists; if not, make it
     if not os.path.exists(output_path):         ## does not exist
-        os.makedirs(output_path+'/temp')
-        if not os.path.exists(output_path+'/temp'):
-            print("Cannot write to output folder. Please check the output path and permissions.")
-            return False,''
-    else:   #ouput_path exists
-        counter=1
-        while os.path.exists(output_path+str(counter))==True:
-            counter+=1
-        print("The output path "+output_path+str(counter)+" already existed.\nYour output will be written to: "+output_path+str(counter)+'\n')
-        output_path=output_path+str(counter)
         os.makedirs(output_path+'/temp')
         if not os.path.exists(output_path+'/temp'):
             print("Cannot write to output folder. Please check the output path and permissions.")
