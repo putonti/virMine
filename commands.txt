@@ -1,8 +1,28 @@
-#move files into inputFiles/ folder prior to doing anything
-git clone https://github.com/thatzopoulos/virmine.git
+virMine Commands
 
-sudo docker build -t virmine .
-sudo docker run -v /home/cputonti/dockerTest/runNAME:/virmineOutputFolderName -i -t virmine
+1. open terminal
+2. in terminal, pull virMine from github:
+	git clone https://github.com/thatzopoulos/virmine.git
 
-python2.7 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o testOutput
+3. move to virMine directory
+	cd virMine
+
+
+4. move your paired-end fastq files, as well as the viral and nonviral databases, to the inputFiles folder
+
+5. build virMine
+	sudo docker build -t virmine .
+
+6. run virMine
+	sudo docker run -v /home/cputonti/dockerTest/runNAME:/virmineOutputFolderName -i -t virmine
+
+7. you are ready to use virMine
+   command options:
+	-a : choose your assembler (spades, metaspades, megahit)
+	-p : list your paired-end read files
+	-v : list your viral database
+	-nv : list your nonviral database
+	-o : make an output file
+   example:
+	python2.7 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o testOutput
 
