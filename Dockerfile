@@ -9,13 +9,11 @@ FROM ubuntu
 #NonViral DB: no_phage_bact_complete.fasta
 
 RUN apt-get update && apt-get install -y curl vim csh python2.7 python2.7-dev gcc g++ unzip make git bzip2 zlib1g-dev ncurses-dev wget python-pip ipython build-essential python-pkg-resources python-setuptools ncbi-blast+
-#ADD glimmer302b.tar.gz glimmer
 ADD BBMap_37.36.tar.gz bbmap
 ADD virMine.py virMine.py 
 ADD SPAdes-3.10.1-Linux.tar.gz spades
 ADD inputFiles/ /inputFiles/
 ADD g3-iterated-viral.csh g3-iterated-viral.csh 
-#attempt to install biopython
 RUN pip install --upgrade pip
 RUN python -m pip install biopython
 
@@ -37,6 +35,7 @@ RUN curl -SL https://ccb.jhu.edu/software/glimmer/glimmer$GLIMMER_VERSION.tar.gz
 RUN cd $GLIMMER_DIR/$GLIMMER_SUBDIR/src && make
 #Add glimmer to PATH
 ENV PATH $GLIMMER_DIR/$GLIMMER_SUBDIR/bin:$GLIMMER_DIR/$GLIMMER_SUBDIR/scripts:$PATH
+
 #update paths in the g3-iterated.csh script
 #set awkpath = /glimmer/glimmer3.02/scripts
 #set glimmerpath = /glimmer/glimmer3.02/bin
@@ -62,6 +61,4 @@ RUN cp $GLIMMER_DIR/$GLIMMER_SUBDIR/scripts/g3-iterated.csh .
 
 ENV PATH /bbmap/bbmap:/spades/SPAdes-3.10.1-Linux/bin:/megahit:/blast:/sickle:$PATH
 RUN echo $PATH
-CMD ["python2.7", "virMine.py", "-a", "spades", "-p", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-v", "inputFiles/viral_aa.fasta", "-nv", "inputFiles/nonviral_aa.fasta", "-o", "testOutput"]
-#RUN which python3
-#sudo docker run -i -t thatzopoulos/virmine`
+#CMD ["python2.7", "virMine.py", "-a", "spades", "-p", "inputFiles/R1.fastq", "inputFiles/R2.fastq", "-v", "inputFiles/viral_aa.fasta", "-nv", "inputFiles/nonviral_aa.fasta", "-t", "11", "-o", "testOutput"]
