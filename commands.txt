@@ -1,5 +1,8 @@
-python3 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o testOutput
+#move files into inputFiles/ folder prior to doing anything
+git clone https://github.com/thatzopoulos/virmine.git
 
 sudo docker build -t virmine .
 sudo docker run -i -t virmine
+
+python2.7 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o testOutput
 
