@@ -24,5 +24,4 @@ virMine Commands
 	-nv : list your nonviral database
 	-o : make an output file
    example:
-	python virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o testOutput
-(Here the 'runNAME, specified in the docker command is 'virmineOutputFolderName'.)
+	python virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineOutputFolderName
