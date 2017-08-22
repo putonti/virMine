@@ -17,7 +17,7 @@ From within the project folder run:
 sudo docker build -t virmine .
 ```
 ```python
-sudo docker run 0v /pathToLocalFolder/runName:/virmineDockerOutputFolder -i -t virmine
+sudo docker run -v /pathToLocalFolder/runName:/virmineDockerOutputFolder -i -t virmine
 ```
 
 ### Prerequisites
