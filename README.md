@@ -39,7 +39,7 @@ python2.7 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inp
 
 ## Authors
 
-* TODO
+* Andrea Garretto
 * Thomas Hatzopoulos
 * Catherine Putonti
 
