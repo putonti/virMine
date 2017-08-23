@@ -46,7 +46,3 @@ python2.7 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inp
 ## License
 
 This project is licensed under the TODO
-
-## Acknowledgments
-
-* TODO
