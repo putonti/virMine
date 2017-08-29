@@ -1,6 +1,6 @@
 # virMine
 
-TODO
+Novel viral species genomes – particularly those in high abundance – have been able to be identified directly from complex community viral metagenomes. Discovery of such viral genomes often relies heavily on manual curation and prior studies have employed a variety of different criteria when sifting through sequencing data. In an effort to provide a comprehensive means for the discovery of complete viral genomes from complex sequence data sets, we developed the tool virMine. Raw sequencing reads are processed and assembled and annotated, and individual contigs are scored based upon their likelihood of being viral in origin. Several filters have been implemented, allowing researchers to refine their search for their specific study system. virMine can be used to identify viruses in any niche and thus further our understanding of this vast reservoir of genetic diversity.
 
 ## Getting Started
 
@@ -45,4 +45,4 @@ python2.7 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inp
 
 ## License
 
-This project is licensed under the TODO
+This project is licensed under the terms of the MIT License
