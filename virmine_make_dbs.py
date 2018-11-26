@@ -69,7 +69,7 @@ xCOGids=[i['COG-id'] for i in xs]
 
 xProteinids=[i['protein-id'] for i in c if i['COG-id'] in xCOGids]
 
-output_file=os.getcwd()+'/no_phage_bactTEST.fasta'
+output_file=os.getcwd()+'/no_phage_bact.fasta'
 output_bact=open(output_file,'wb')
 temp_sequences=list(SeqIO.parse(output_dir+'/prot2003-2014.fa','fasta'))
 for i in temp_sequences:
