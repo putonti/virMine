@@ -26,7 +26,7 @@ Docker is the only prerequisite for this program to run, all other dependencies 
 
 ## virMine Command Options
 
-*	a : choose your assembler (spades, metaspades, megahit)
+*	a : choose your assembler (spades, metaspades, megahit, all3)
 *	p : list your paired-end read files
 *	v : list your viral database
 *	nv : list your nonviral database
