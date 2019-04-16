@@ -5,7 +5,7 @@ FROM ubuntu
 #blast and BBMAP
 
 
-RUN apt-get update && apt-get install -y curl vim csh python2.7 python2.7-dev gcc g++ unzip make git bzip2 zlib1g-dev ncurses-dev wget python-pip ipython build-essential python-pkg-resources python-setuptools ncbi-blast+
+RUN apt-get update && apt-get install -y curl vim csh python2.7 python2.7-dev gcc g++ unzip make git bzip2 zlib1g-dev ncurses-dev wget python-pip ipython build-essential python-pkg-resources python-setuptools ncbi-blast+ cmake 
 ADD BBMap_37.36.tar.gz bbmap
 ADD virMine.py virMine.py 
 ADD SPAdes-3.10.1-Linux.tar.gz spades
@@ -20,7 +20,7 @@ RUN git clone https://github.com/najoshi/sickle
 
 
 RUN cd sickle && make
-RUN cd megahit && make
+RUN cd megahit && git submodule update --init && mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && make -j4
 
 #GET Glimmer
 ENV GLIMMER_VERSION 302b
