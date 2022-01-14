@@ -7,40 +7,49 @@ Novel viral species genomes – particularly those in high abundance – have be
 Clone Project
 
 ```python
-git clone https://github.com/thatzopoulos/virmine.git
+git clone https://github.com/putonti/virmine.git
 ```
 
 Move paired-end fastq files, as well as the viral and nonviral databases, to the inputFiles folder prior to building the docker image
 
 From within the project folder run:
 ```python
-sudo docker build -t virmine .
+sudo docker build --tag virmine:latest virmine
 ```
 ```python
-sudo docker run -v /pathToLocalFolder/runName:/virmineDockerOutputFolder -i -t virmine
+sudo docker run -v ~/pathToLocalFolder/virmine:/virmineDockerOutputFolder -i -t virmine
 ```
 
 ### Prerequisites
 
 Docker is the only prerequisite for this program to run, all other dependencies are handled by the Dockerfile.
+If any section of the program causes an error or is unable to run, check that you have enough memory in your Docker resources.
 
 ## virMine Command Options
 
-*	a : choose your assembler (spades, metaspades, megahit, all3)
-*	p : list your paired-end read files
-*	v : list your viral database
-*	nv : list your nonviral database
-*	o : make an output file
+*	-a : choose your assembler (spades, metaspades, megahit, all3)
+*	-p : list your paired-end read files
+*	-v : list your viral database
+*	-nv : list your nonviral database
+*	-o : make an output file
 
-### Example Run 
+If you chose to use an assembler separate from virMine:
+*	-A : list your contig assembly file
+
+### Example Run with Paired-End Reads:
 ```python
-python2.7 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o outputFolder
+python3 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
+```
+### Example Run with Assembled Contigs:
+```python
+python3 virMine.py -A inputFiles/assembled_contigs.fasta -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
 ```
 
 ## Authors
 
 * Andrea Garretto
 * Thomas Hatzopoulos
+* Genevieve Johnson
 * Catherine Putonti
 
 ## License
