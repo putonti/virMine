@@ -392,7 +392,7 @@ def run_sickle(output_path,r_type='pe',*read_files):
     
 #RUN SPAdes
 def run_spades(num_threads,output_path,r_type='pe',*read_files):
-    spades_command='spades.py'
+    spades_command='python3 /spades/SPAdes-3.15.3-Linux/bin/spades.py'
     if r_type=='pe':
 
         if len(read_files)!=2:
@@ -805,7 +805,7 @@ def filter_by_seq_of_interest(contig_file,file_name,num_procs):
     #make database of sequences of interest
     db_genes=output_path+'/temp/genes_of_interest'
     output_file=output_path+'/temp/seqs_of_interest.blastx'
-    makeblast_command='makeblastdb -in '+file_name+' -out '+db_genes+' -title '+db_genes+' -dbtype prot'
+    makeblast_command='makeblastdb -max_file_sz 2GB -in '+file_name+' -out '+db_genes+' -title '+db_genes+' -dbtype prot'
     os.system(makeblast_command)
     fileQC,errmsg=check_files(db_genes+'.pin',viral_db+'.pin')
     if fileQC==False:
@@ -991,7 +991,7 @@ def run_virMine(assembly,contig_file,type_reads,reads,filter_params,output_path,
 ts=time.time()
 st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 command_message='Running virMine.\nRun started at '+st+'\n\nCommand:\n'
-command_message+='python'
+command_message+='python3'
 for i in sys.argv:
     command_message+=' '+i
 
@@ -1094,10 +1094,10 @@ else:
             if x==True:
                 #make DBs
                 bact_db=output_path+'/temp/'+'nonviral'
-                makeblast_command='makeblastdb -in '+bact_db_seqs+' -out '+bact_db+' -title '+bact_db+' -dbtype prot'
+                makeblast_command='makeblastdb -max_file_sz 2GB -in '+bact_db_seqs+' -out '+bact_db+' -title '+bact_db+' -dbtype prot'
                 os.system(makeblast_command)          
                 viral_db=output_path+'/temp/'+'viral'
-                makeblast_command='makeblastdb -in '+viral_db_seqs+' -out '+viral_db+' -title '+viral_db+' -dbtype prot'
+                makeblast_command='makeblastdb -max_file_sz 2GB -in '+viral_db_seqs+' -out '+viral_db+' -title '+viral_db+' -dbtype prot'
                 os.system(makeblast_command)
                 fileQC,errmsg=check_files(bact_db+'.pin',viral_db+'.pin')
                 if fileQC==False:
