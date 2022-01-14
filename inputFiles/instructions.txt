@@ -1,1 +1,1 @@
-place input files here before building docker image
+place input files and both viral and nonviral databases here before building docker image
