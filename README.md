@@ -1,6 +1,6 @@
-# virMine
+# virMine 2.0
 
-Novel viral species genomes – particularly those in high abundance – have been able to be identified directly from complex community viral metagenomes. Discovery of such viral genomes often relies heavily on manual curation and prior studies have employed a variety of different criteria when sifting through sequencing data. In an effort to provide a comprehensive means for the discovery of complete viral genomes from complex sequence data sets, we developed the tool virMine. Raw sequencing reads are processed and assembled and annotated, and individual contigs are scored based upon their likelihood of being viral in origin. Several filters have been implemented, allowing researchers to refine their search for their specific study system. virMine can be used to identify viruses in any niche and thus further our understanding of this vast reservoir of genetic diversity.
+Novel viral species genomes – particularly those in high abundance – have been able to be identified directly from complex community viral metagenomes. Discovery of such viral genomes often relies heavily on manual curation and prior studies have employed a variety of different criteria when sifting through sequencing data. In an effort to provide a comprehensive means for the discovery of complete viral genomes from complex sequence data sets, we developed the tool virMine. Input can be either: (1) raw sequencing reads from short-read sequencing technologies or (2) long-read sequences or assembled contigs. Short-reads are processed and assembled. These assembled short-reads or supplied long-reads/contigs are then annotated, and individual contigs are scored based upon their likelihood of being viral in origin. Several filters have been implemented, allowing researchers to refine their search for their specific study system. virMine can be used to identify viruses in any niche and thus further our understanding of this vast reservoir of genetic diversity.
 
 ## Getting Started
 
@@ -33,14 +33,14 @@ If any section of the program causes an error or is unable to run, check that yo
 *	-nv : list your nonviral database
 *	-o : make an output file
 
-If you chose to use an assembler separate from virMine:
-*	-A : list your contig assembly file
+If you wish to supply long-reads or assembled contigs:
+*	-A : list your long-read/contig assembly file
 
 ### Example Run with Paired-End Reads:
 ```python
 python3 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
 ```
-### Example Run with Assembled Contigs:
+### Example Run with Long-reads or Assembled Contigs:
 ```python
 python3 virMine.py -A inputFiles/assembled_contigs.fasta -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
 ```
