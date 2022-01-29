@@ -28,7 +28,7 @@ If any section of the program causes an error or is unable to run, check that yo
 ## virMine Command Options
 
 *	-a : choose your assembler (spades, metaspades, megahit, all3)
-*	-p : list your paired-end read files
+*	-p : list your short read files (one single-end file or two paired-end files) 
 *	-v : list your viral database
 *	-nv : list your nonviral database
 *	-o : make an output file
