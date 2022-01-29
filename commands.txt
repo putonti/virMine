@@ -19,7 +19,7 @@ virMine Commands
 
 7. you are ready to use virMine. Type python3 virMine.py -h to see command line options, e.g.
 	-a : choose your assembler (spades, metaspades, megahit)
-	-p : list your paired-end read files
+	-p : list your short-read files (one single-end file or two paired-end files) 
 	-v : list your viral database
 	-nv : list your nonviral database
 	-o : make an output file
