@@ -45,6 +45,9 @@ python3 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v input
 python3 virMine.py -A inputFiles/assembled_contigs.fasta -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
 ```
 
+## Further Details:
+Further details about this tool can be found in Garretto et al. PeerJ 2019 (https://peerj.com/articles/6695/). A manuscript describing the upgrades implemented as part of v2.0 is currently under review.
+
 ## Authors
 
 * Andrea Garretto
