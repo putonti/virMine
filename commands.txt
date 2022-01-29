@@ -23,8 +23,8 @@ virMine Commands
 	-v : list your viral database
 	-nv : list your nonviral database
 	-o : make an output file
-   if you chose to use an assembler separate from virMine:
-	-A : list your contig assembly file
+   If you wish to supply long-reads or assembled contigs:
+	-A : list your long-read/contig file
    example with paired-end reads:
 	python3 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
    example with assembled contigs:
