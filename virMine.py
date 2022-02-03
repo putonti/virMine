@@ -413,7 +413,7 @@ def run_spades(num_threads,output_path,r_type='pe',*read_files):
 
 #RUN metaSPAdes
 def run_metaspades(num_threads,output_path,r_type='pe',*read_files):
-    metaspades_command='spades.py'
+    metaspades_command='python3 /spades/SPAdes-3.15.3-Linux/bin/spades.py'
     if r_type=='pe':
         if len(read_files)!=2:
             print('Paired-end reads requires 2 read files entered.')
@@ -431,7 +431,7 @@ def run_metaspades(num_threads,output_path,r_type='pe',*read_files):
 
 #RUN MEGAHIT
 def run_megahit(num_threads,output_path,r_type='pe',*read_files):
-    megahit_command='megahit -t '+num_threads
+    megahit_command='python3 /MEGAHIT-1.2.9-Linux-x86_64-static/bin/megahit -t '+num_threads
     if r_type=='pe':
         if len(read_files)!=2:
             print('Paired-end reads requires 2 read files entered.')
@@ -452,12 +452,12 @@ def run_megahit(num_threads,output_path,r_type='pe',*read_files):
 #RUN ALL ASSEMBLY OPTIONS
 def run_all_assemblers(num_threads,output_path,r_type='pe',*read_files):
     log('Running spades, metaspades & megahit assemblies.',output_path+'/virMine_log.txt')##
-    spades_command='spades.py -k 33,55,77,99,127 -t '+num_threads+' --only-assembler -1 '+read_files[0]+' -2 '+read_files[1]+' -o '+output_path+'/temp/spades/assembly/'
+    spades_command='python3 /spades/SPAdes-3.15.3-Linux/bin/spades.py -k 33,55,77,99,127 -t '+num_threads+' --only-assembler -1 '+read_files[0]+' -2 '+read_files[1]+' -o '+output_path+'/temp/spades/assembly/'
     os.system(spades_command)
-    metaspades_command='spades.py -k 33,55,77,99,127 --meta -t '+num_threads+' --only-assembler -1 '+read_files[0]+' -2 '+read_files[1]+' -o '+output_path+'/temp/metaspades/assembly/'
+    metaspades_command='python3 /spades/SPAdes-3.15.3-Linux/bin/spades.py -k 33,55,77,99,127 --meta -t '+num_threads+' --only-assembler -1 '+read_files[0]+' -2 '+read_files[1]+' -o '+output_path+'/temp/metaspades/assembly/'
     os.system(metaspades_command)
     os.makedirs(output_path+'/temp/megahit') #make megahit directory
-    megahit_command='megahit -t '+num_threads+' -1 '+read_files[0]+' -2 '+read_files[1]+' -o '+output_path+'/temp/megahit/assembly/'
+    megahit_command='python3 /MEGAHIT-1.2.9-Linux-x86_64-static/bin/megahit -t '+num_threads+' -1 '+read_files[0]+' -2 '+read_files[1]+' -o '+output_path+'/temp/megahit/assembly/'
     print(megahit_command)
     os.system(megahit_command)
     return True
