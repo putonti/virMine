@@ -16,12 +16,12 @@ RUN pip install --upgrade pip
 RUN python3 -m pip install biopython
 
 
-RUN git clone https://github.com/voutcn/megahit.git
+RUN wget https://github.com/voutcn/megahit/releases/download/v1.2.9/MEGAHIT-1.2.9-Linux-x86_64-static.tar.gz
 RUN git clone https://github.com/najoshi/sickle
 
 
 RUN cd sickle && make
-RUN cd megahit && git submodule update --init && mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && make -j4
+RUN tar zvxf MEGAHIT-1.2.9-Linux-x86_64-static.tar.gz
 
 #GET Glimmer
 ENV GLIMMER_VERSION 302b
