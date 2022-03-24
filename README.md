@@ -45,6 +45,13 @@ python3 virMine.py -a spades -p inputFiles/R1.fastq inputFiles/R2.fastq -v input
 python3 virMine.py -A inputFiles/assembled_contigs.fasta -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
 ```
 
+## Test Data
+
+### Example Command to Run Test Data:
+```python
+python3 virMine.py -a all3 -p testFiles/test_data_R1.fastq testFiles/test_data_R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
+```
+
 ## Further Details:
 Further details about this tool can be found in Garretto et al. PeerJ 2019 (https://peerj.com/articles/6695/). A manuscript describing the upgrades implemented as part of v2.0 is currently under review.
 
