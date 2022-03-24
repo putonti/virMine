@@ -1,0 +1,35 @@
+Output will be written to: virmineDockerOutputFolder/output.
+Running virMine.
+Run started at 2022-03-22 20:33:48
+
+Command:
+python3 virMine.py -a all3 -p testFiles/mixed_trial_1.fastq testFiles/mixed_trial_2.fastq -v inputFiles/all_viral_faa.fasta -nv inputFiles/no_phage_bact.fasta -o virmineDockerOutputFolder/output
+
+*****************************************
+
+
+Viral & nonviral BLAST databases created:
+	virmineDockerOutputFolder/output/temp/nonviral
+	virmineDockerOutputFolder/output/temp/viral
+Read QC completed by sickle.
+Running spades, metaspades & megahit assemblies.
+Assembly scores:
+	spades: 48494
+	metaspades: 48494
+	megahit: 48490
+Best alignment: metaspades
+Number of contigs in assembly file virmineDockerOutputFolder/output/temp/assembly/scaffolds.fasta: 3.
+No filters applied.
+ORF sequences written to file: virmineDockerOutputFolder/output/predicted_orfs.fasta
+# Predicted ORFs: 136
+
+Number of Contigs Classified:
+Number Bacterial Contigs: 2
+Number Viral Contigs: 1
+Number Unknown Contigs: 0
+Viral contigs written to: virmineDockerOutputFolder/output/viral_contigs.fasta
+Unknown contigs written to: virmineDockerOutputFolder/output/unkn_contigs.fasta
+ORFs (nt) for viral contigs written to: virmineDockerOutputFolder/output/viral_contig_orfs_nt.fasta
+ORFs (aa) for viral contigs written to: virmineDockerOutputFolder/output/viral_contig_orfs_nt.fasta
+virMine completed.
+virMine completed at: 2022-03-22 20:48:23
