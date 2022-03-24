@@ -46,11 +46,15 @@ python3 virMine.py -A inputFiles/assembled_contigs.fasta -v inputFiles/viral_aa.
 ```
 
 ## Test Data
+Artificial paired-end reads of _E. coli_ K12 (NC_000913.3) and Escherichia phage Lambda (J02459.1).
 
 ### Example Command to Run Test Data:
 ```python
-python3 virMine.py -a all3 -p testFiles/test_data_R1.fastq testFiles/test_data_R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/output
+python3 virMine.py -a all3 -p testFiles/test_data_R1.fastq testFiles/test_data_R2.fastq -v inputFiles/viral_aa.fasta -nv inputFiles/nonviral_aa.fasta -o virmineDockerOutputFolder/testOutput
 ```
+
+### Example Output
+Running the test data using the option of all 3 assembly methods should result in 3 contigs (final_contigs.fasta), with 1 of those contigs being classified as viral (viral_contigs.fasta). Other output files include all predicted ORFs, the viral ORFs only, and all BLAST output files.  
 
 ## Further Details:
 Further details about this tool can be found in Garretto et al. PeerJ 2019 (https://peerj.com/articles/6695/). A manuscript describing the upgrades implemented as part of v2.0 is currently under review.
