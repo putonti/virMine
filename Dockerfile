@@ -11,6 +11,7 @@ ADD BBMap_38.94.tar.gz bbmap
 ADD virMine.py virMine.py 
 ADD SPAdes-3.15.3-Linux.tar.gz spades
 ADD inputFiles/ /inputFiles/
+ADD testFiles/ /testFiles/
 ADD g3-iterated-viral.csh g3-iterated-viral.csh 
 RUN pip install --upgrade pip
 RUN python3 -m pip install biopython
