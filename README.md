@@ -3,16 +3,22 @@
 Novel viral species genomes – particularly those in high abundance – have been able to be identified directly from complex community viral metagenomes. Discovery of such viral genomes often relies heavily on manual curation and prior studies have employed a variety of different criteria when sifting through sequencing data. In an effort to provide a comprehensive means for the discovery of complete viral genomes from complex sequence data sets, we developed the tool virMine. Input can be either: (1) raw sequencing reads from short-read sequencing technologies or (2) long-read sequences or assembled contigs. Short-reads are processed and assembled. These assembled short-reads or supplied long-reads/contigs are then annotated, and individual contigs are scored based upon their likelihood of being viral in origin. Several filters have been implemented, allowing researchers to refine their search for their specific study system. virMine can be used to identify viruses in any niche and thus further our understanding of this vast reservoir of genetic diversity.
 
 ## Getting Started
+### Option 1:
+Docker Hub Link: https://hub.docker.com/repository/docker/genevievej16/virmine
+```python
+docker pull genevievej16/virmine:latest
+```
+Move paired-end fastq files, as well as the viral and nonviral databases, to the inputFiles folder prior to building the docker image.
+```python
+sudo docker run -v ~/pathToLocalFolder/virmine:/virmineDockerOutputFolder -i -t genevievej16/virmine
+```
 
-Clone Project
-
+### Option 2:
+Clone Project from GitHub
 ```python
 git clone https://github.com/putonti/virmine.git
 ```
-
-Move paired-end fastq files, as well as the viral and nonviral databases, to the inputFiles folder prior to building the docker image
-
-From within the project folder run:
+Move paired-end fastq files, as well as the viral and nonviral databases, to the inputFiles folder prior to building the docker image.
 ```python
 sudo docker build --tag virmine:latest virmine
 ```
