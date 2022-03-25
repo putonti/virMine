@@ -20,7 +20,7 @@ Docker Hub Link: https://hub.docker.com/repository/docker/genevievej16/virmine
 ```python
 docker pull genevievej16/virmine:latest
 ```
-Move paired-end fastq files, as well as the viral and nonviral databases, to your designated output folder prior to running the docker image. While in the docker you will access the input files from the virmineDockerOutputFolder rather than from the inputFiles folder.
+Move paired-end fastq files, as well as the viral and nonviral databases, to your local designated output folder prior to running the docker image. While in the docker you will access the input files from the virmineDockerOutputFolder rather than from the inputFiles folder.
 ```python
 sudo docker run -v ~/pathToLocalFolder/virmine:/virmineDockerOutputFolder -i -t genevievej16/virmine
 ```
