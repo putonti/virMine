@@ -5,10 +5,10 @@ virMine Commands
 	git clone https://github.com/putonti/virmine.git
 
 3. move to virMine directory
-	cd virMine
+	cd virmine
 
 
-4. move your paired-end fastq files, as well as the viral and nonviral databases, to the inputFiles folder
+4. move your paired-end fastq files (or assembled contigs), as well as the viral and nonviral databases, to the inputFiles folder
 
 5. build virMine
 	sudo docker build --tag virmine:latest virmine
