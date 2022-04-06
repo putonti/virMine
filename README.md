@@ -31,15 +31,29 @@ Docker is the only prerequisite for this program to run, all other dependencies 
 If any section of the program causes an error or is unable to run, check that you have enough memory in your Docker resources.
 
 ## virMine Command Options
-
+Either short-reads, long-reads, or assembled contigs can be provided.
+For short-reads:
 *	-a : choose your assembler (spades, metaspades, megahit, all3)
-*	-p : list your short read files (one single-end file or two paired-end files) 
+*	-p : paired-end reads
+*	-s : single-end reads
+For long-reads or assembled contigs
+*	-A : list your long-read/contig assembly file
+
+Required parameters:
 *	-v : list your viral database
 *	-nv : list your nonviral database
 *	-o : make an output file
 
-If you wish to supply long-reads or assembled contigs:
-*	-A : list your long-read/contig assembly file
+Optional filter parameters:
+*	-m : minimum contig size
+*	-M : maximum contig size
+*	-c : minimum coverage
+*	-cov : minimum SPAdes coverage
+*	-g : includes genes of interest (parameter supplies protein sequences for these genes)
+
+Additional parameters:
+*	-t : number of threads
+*	-b : blast option ['blastx' or 'blastp'] ('blastp' is faster)
 
 ### Example Run with Paired-End Reads:
 ```python
